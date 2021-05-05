@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.nomadiq.storeproject.ui.character.BreakingBadCharacter" />
+
+        <variable
+            name="clickListener"
+            type="com.nomadiq.storeproject.ui.character.CharactersAdapter.CharacterListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onClick(movie)}">
+
+        <ImageView
+            android:id="@+id/img_poster"
+            android:layout_width="54dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher_background"
+            app:imageUrl="@{movie.imgUrl}"
+            app:layout_constraintCircleRadius="180dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textview_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_toEndOf="@id/img_poster"
+            android:fontFamily="sans-serif"
+            android:padding="4dp"
+            android:text="name"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/img_poster"
+            app:layout_constraintTop_toTopOf="parent"
+            app:myMovieName="@{movie}" />
+
+        <TextView
+            android:id="@+id/textview_birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_name"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/img_poster"
+            android:fontFamily="@font/roboto"
+            android:padding="4dp"
+            android:text="subtitle"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/img_poster"
+            app:layout_constraintTop_toBottomOf="@id/textview_name"
+            app:myMovieName="@{movie}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
